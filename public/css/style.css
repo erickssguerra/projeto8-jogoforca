@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+* {
+    font-family: 'Varela Round', sans-serif;
+}
+
+header {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+button,
+.tecla-habilitada {
+    box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s all;
+}
+
+button:active,
+.tecla-habilitada:active {
+    transform: scale(0.8);
+}
+
+body {
+    background-color: lightgray;
+    box-sizing: border-box;
+}
+
+main {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    border: solid 1px lightslategray;
+    margin: 0 auto;
+    background-color: white;
+    width: 850px;
+}
+
+.topo .forca-imagem img {
+    width: 300px;
+    margin: 20px;
+}
+
+.topo .forca-direita {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.topo .forca-direita button {
+    background-color: #27ae60;
+    height: 60px;
+    width: 250px;
+    font-size: 20px;
+    margin: 30px;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    font-weight: 900;
+}
+
+.topo .forca-direita .palavra-sorteada {
+    font-size: 45px;
+    margin: 30px;
+    letter-spacing: 13px;
+}
+
+.correta {
+    color: #27ae60;
+}
+
+.errada {
+    color: rgb(239, 68, 20);
+}
+
+.fundo {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: solid 1px lightslategray;
+    margin: 10px auto;
+    background-color: white;
+    width: 800px;
+    height: 200px;
+}
+
+.fundo .teclado {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.fundo .teclado .tecla {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tecla-habilitada {
+    background-color: cornflowerblue;
+}
+
+.fundo .teclado .tecla-desabilitada p {
+    font-weight: 700;
+    font-size: 25px;
+    color: rgb(159, 159, 159);
+}
+
+.fundo .teclado .tecla-habilitada p {
+    font-weight: 700;
+    font-size: 25px;
+    color: white;
+}
+
+.fundo .resposta {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.fundo .resposta input {
+    width: 400px;
+    font-size: 20px;
+    border-radius: 5px;
+    height: 40px;
+    margin: 0 20px;
+    border: solid 1px lightgray;
+    font-style: italic;
+}
+
+.input-habilitado {
+    background-color: white;
+}
+
+.input-desabilitado,
+.tecla-desabilitada {
+    background-color: lightgrey;
+    color: rgb(159, 159, 159);
+}
+
+.fundo .resposta button {
+    font-size: 20px;
+    border: none;
+    color: white;
+    border-radius: 15px;
+    width: 120px;
+    height: 50px;
+    background-color: dodgerblue;
+}
