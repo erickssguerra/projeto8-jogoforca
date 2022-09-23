@@ -86,7 +86,10 @@ export default function App() {
     function perdeuJogo() {
         setPalavraEscondida(palavraSorteada);
         setStatusTeclado([]);
-        setResultadoFinal("vermelho")
+        setResultadoFinal("vermelho");
+        setHabilitaInput("input-desabilitado");
+        const input = document.querySelector("input");
+        input.disabled = true;
     }
 
     function revelaLetra(letra) {
@@ -107,6 +110,9 @@ export default function App() {
     function ganhouJogo() {
         setResultadoFinal("verde");
         setStatusTeclado([])
+        setHabilitaInput("input-desabilitado")
+        const input = document.querySelector("input");
+        input.disabled = true;
     }
 
     function Tecla(props) {
