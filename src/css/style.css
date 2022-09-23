@@ -17,6 +17,15 @@ button,
     transition: 0.2s all;
 }
 
+.vermelho {
+    color: red;
+}
+
+.verde {
+    color: green;
+}
+
+
 button:active,
 .tecla-habilitada:active {
     transform: scale(0.8);
@@ -44,6 +53,7 @@ main {
     margin: 0 auto;
     background-color: white;
     width: 850px;
+    position: relative;
 }
 
 .topo .forca-imagem img {
@@ -74,6 +84,9 @@ main {
     font-size: 45px;
     margin: 30px;
     letter-spacing: 13px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .correta {
@@ -113,6 +126,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
+
 }
 
 .tecla-habilitada {
@@ -159,6 +174,7 @@ main {
     background-color: lightgrey;
     color: rgb(159, 159, 159);
 }
+
 
 .fundo .resposta button {
     font-size: 20px;
