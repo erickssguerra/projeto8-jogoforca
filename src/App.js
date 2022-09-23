@@ -23,6 +23,7 @@ export default function App() {
     const [forca, setForca] = useState(forca00);
     const [resultadoFinal, setResultadoFinal] = useState("");
     const [statusInput, setStatusInput] = useState("");
+    const [statusBotao, setStatusBotao] = useState("Escolher palavra")
 
     function sortearPalavra() {
         let palavraIndex = Math.floor(Math.random() * palavras.length);
@@ -35,6 +36,7 @@ export default function App() {
         setResultadoFinal("");
         console.log("Palavra sorteada: ", palavraSorteada);
         setStatusInput("");
+        setStatusBotao("Trocar palavra")
     }
 
     function esconderPalavra(palavraSorteada) {
@@ -92,6 +94,7 @@ export default function App() {
         const input = document.querySelector("input");
         input.disabled = true;
         setStatusInput("");
+        setStatusBotao("Tente de novo")
     }
 
     function revelaLetra(letra) {
@@ -116,6 +119,7 @@ export default function App() {
         const input = document.querySelector("input");
         input.disabled = true;
         setStatusInput("");
+        setStatusBotao("Nova palavra")
     }
 
     function Tecla(props) {
@@ -136,7 +140,6 @@ export default function App() {
             perdeuJogo();
             setForca(forca06);
         }
-
     }
 
     return (
@@ -144,11 +147,11 @@ export default function App() {
             <header>Jogo da forca 😵</header>
             <section className="topo">
                 <div className="forca-imagem">
-                    <img src={forca} alt="forca zerada" />
+                    <img src={forca} data-identifier="game-image" alt="forca" />
                 </div>
                 <div className="forca-direita">
-                    <button onClick={sortearPalavra} className="escolher-palavra">Escolher palavra</button>
-                    <div className={`palavra-sorteada ${resultadoFinal}`}>{palavraEscondida}</div>
+                    <button onClick={sortearPalavra} data-identifier="choose-word" className="escolher-palavra">{statusBotao}</button>
+                    <div data-identifier="word" className={`palavra-sorteada ${resultadoFinal}`}>{palavraEscondida}</div>
                 </div>
             </section>
             <section className="fundo">
@@ -164,11 +167,12 @@ export default function App() {
                     <div className="texto">Já sei a palavra!</div>
                     <input
                         className={habilitaInput}
+                        data-identifier="type-guess"
                         disabled
                         value={statusInput}
                         placeholder="Dê seu palpite aqui!"
                         onChange={(event) => setStatusInput(event.target.value)} />
-                    <button onClick={respostaInput} className="chutar">Chutar</button>
+                    <button data-identifier="guess-button" onClick={respostaInput} className="chutar">Chutar</button>
                 </div>
             </section>
         </main>
