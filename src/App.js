@@ -22,8 +22,7 @@ export default function App() {
     let [erros, setErros] = useState(0);
     const [forca, setForca] = useState(forca00);
     const [resultadoFinal, setResultadoFinal] = useState("");
-
-
+    const [statusInput, setStatusInput] = useState("");
 
     function sortearPalavra() {
         let palavraIndex = Math.floor(Math.random() * palavras.length);
@@ -35,6 +34,7 @@ export default function App() {
         setForca(forca00);
         setResultadoFinal("");
         console.log("Palavra sorteada: ", palavraSorteada);
+        setStatusInput("");
     }
 
     function esconderPalavra(palavraSorteada) {
@@ -62,6 +62,7 @@ export default function App() {
             comparaLetra(letra);
         }
     }
+
     function comparaLetra(letra) {
         const palavraCrua = palavraSorteada.normalize("NFD").replace(/[^a-zA-Z\s]/g, "");
         if (palavraCrua.includes(letra)) {
@@ -90,6 +91,7 @@ export default function App() {
         setHabilitaInput("input-desabilitado");
         const input = document.querySelector("input");
         input.disabled = true;
+        setStatusInput("");
     }
 
     function revelaLetra(letra) {
@@ -113,6 +115,7 @@ export default function App() {
         setHabilitaInput("input-desabilitado")
         const input = document.querySelector("input");
         input.disabled = true;
+        setStatusInput("");
     }
 
     function Tecla(props) {
@@ -123,6 +126,17 @@ export default function App() {
                 className={`tecla ${guardaLetra.includes(props.letra) || statusTeclado ? "tecla-desabilitada" : "tecla-habilitada"}`}>
                 <p>{props.letra}</p></button>
         )
+    }
+
+    function respostaInput() {
+        if (statusInput.normalize("NFD").replace(/[^a-zA-Z\s]/g, "") === palavraSorteada.normalize("NFD").replace(/[^a-zA-Z\s]/g, "")) {
+            setPalavraEscondida(palavraSorteada);
+            ganhouJogo();
+        } else {
+            perdeuJogo();
+            setForca(forca06);
+        }
+
     }
 
     return (
@@ -148,8 +162,13 @@ export default function App() {
                 </div>
                 <div className="resposta">
                     <div className="texto">Já sei a palavra!</div>
-                    <input className={habilitaInput} disabled placeholder="Dê seu palpite aqui!" />
-                    <button className="chutar">Chutar</button>
+                    <input
+                        className={habilitaInput}
+                        disabled
+                        value={statusInput}
+                        placeholder="Dê seu palpite aqui!"
+                        onChange={(event) => setStatusInput(event.target.value)} />
+                    <button onClick={respostaInput} className="chutar">Chutar</button>
                 </div>
             </section>
         </main>
