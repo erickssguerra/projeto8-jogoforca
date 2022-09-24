@@ -126,7 +126,7 @@ export default function App() {
         setDisabledInput(true)
     }
     function respostaInput() {
-        if (statusInput.normalize("NFD").replace(/[^a-zA-Z\s]/g, "") === palavraSorteada.normalize("NFD").replace(/[^a-zA-Z\s]/g, "")) {
+        if (statusInput.toLowerCase().normalize("NFD").replace(/[^a-zA-Z\s]/g, "") === palavraSorteada.normalize("NFD").replace(/[^a-zA-Z\s]/g, "")) {
             setPalavraEscondida(palavraSorteada);
             ganhouJogo();
         } else {
